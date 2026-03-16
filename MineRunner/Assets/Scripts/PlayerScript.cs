@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     private Controls Controls;
 
     private Rigidbody Rb;
-   // private Animator Anim;
+    private bool attacking;
     private void Awake()
     {
        // Anim = GetComponent<Animator>();
@@ -29,11 +29,21 @@ public class PlayerScript : MonoBehaviour
         Movement.x = context.ReadValue<Vector2>().x;
         Movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
-        //Anim.SetBool("CanWalk", Walking);
+    }
+    public void DealDamage(float damage)
+    {
+       attacking = true;
     }
     private void Update()
     {
         transform.Translate(Movement * Speed * Time.deltaTime);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            DealDamage(10f); // Example damage value
+        }
     }
 
 }
