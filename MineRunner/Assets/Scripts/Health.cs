@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        healthBar.fillAmount = currentHealth / maxHealth;
+       healthBar.fillAmount = currentHealth / maxHealth;
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -31,6 +31,5 @@ public class Health : MonoBehaviour
     {
         Destroy(gameObject);
         Debug.Log("Entity has died.");
-        // Additional death logic can be added here
     }
 }
