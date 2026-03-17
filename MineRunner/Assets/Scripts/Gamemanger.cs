@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public abstract class Gamemanger : MonoBehaviour
+public class Gamemanger : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ItemsText;
     private int Diamonds;
