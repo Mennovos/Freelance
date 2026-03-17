@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            DealDamage(10f); // Example damage value
+            collision.gameObject.GetComponent<Health>().TakeDamage(10);
         }
     }
 
