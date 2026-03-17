@@ -7,6 +7,10 @@ public abstract class BasePickup : MonoBehaviour
     {
         gamemanger = FindFirstObjectByType<Gamemanger>();
     }
+    protected virtual void Update()
+    {
+
+    }
     protected virtual void OnCollisionEnter(Collision collision)
     {
         gamemanger.AddItemes(1);

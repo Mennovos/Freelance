@@ -2273,7 +2273,7 @@ GameObject:
   - component: {fileID: 731093160}
   - component: {fileID: 731093159}
   - component: {fileID: 731093158}
-  - component: {fileID: 731093157}
+  - component: {fileID: 731093162}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -2281,19 +2281,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &731093157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731093156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea090ef499186d419c62da714d49865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasePickup
-  gamemanger: {fileID: 0}
 --- !u!136 &731093158
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2389,6 +2376,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731093162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731093156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b24525e4b02784eb19eca25005d160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Diamonds
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
