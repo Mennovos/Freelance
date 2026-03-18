@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject Basepos;
     [SerializeField] private float ChaseSpeed = 13f;
+    private Rigidbody rb;
     private GameObject honey;
     private float Cooldowntime = 5f;
     private EnemyStatus State;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
     }
     private void Update()
@@ -36,12 +38,12 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, Basepos.transform.position, ChaseSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(rb.transform.position, Basepos.transform.position, ChaseSpeed * Time.deltaTime);
                 }
                 break;
 
             case EnemyStatus.Chasing:
-                transform.position = Vector3.MoveTowards(transform.position, Player.transform.position + new Vector3(0, 1, 0), ChaseSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(rb.transform.position, Player.transform.position + new Vector3(0, 1, 0), ChaseSpeed * Time.deltaTime);
                 if (distanceToPlayer < 2f) // start attacking if close enough
                 {
                     State = EnemyStatus.Attacking;
@@ -59,7 +61,7 @@ public class Enemy : MonoBehaviour
                 if (honey != null)
                 {
                     float distanceToHoney = (honey.transform.position - transform.position).magnitude;
-                    transform.position = Vector3.MoveTowards(transform.position, honey.transform.position, 3 * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(rb.transform.position, honey.transform.position, 3 * Time.deltaTime);
                     if (distanceToHoney < 1f)
                     {
                         if (Cooldowntime <= 0f)
