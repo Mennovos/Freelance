@@ -25,18 +25,18 @@ public class Enemy : MonoBehaviour
     }
    private void Update()
     {
-       transform.rotation = Quaternion.Euler(0, 0, 0);
+       //transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     private void FixedUpdate()     
     {
         Cooldowntime -= Time.deltaTime;
         //transform.LookAt(Player.transform.position);
-        float distanceBeeNest = (Player.transform.position - Basepos.transform.position).magnitude;
+        float distanceBasePos = (Player.transform.position - Basepos.transform.position).magnitude;
         float distanceToPlayer = (Player.transform.position - rb.transform.position).magnitude;
         switch (State)
         {
             case EnemyStatus.Idle:
-                if (distanceBeeNest < 4f)
+                if (distanceBasePos < 4f)
                 {
                     State = EnemyStatus.Chasing;
                     State = EnemyStatus.Distracted;
