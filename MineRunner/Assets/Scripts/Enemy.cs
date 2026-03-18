@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -22,12 +23,16 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
     }
-    private void Update()
+   private void Update()
+    {
+       transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+    private void FixedUpdate()     
     {
         Cooldowntime -= Time.deltaTime;
-        transform.LookAt(Player.transform.position);
+        //transform.LookAt(Player.transform.position);
         float distanceBeeNest = (Player.transform.position - Basepos.transform.position).magnitude;
-        float distanceToPlayer = (Player.transform.position - transform.position).magnitude;
+        float distanceToPlayer = (Player.transform.position - rb.transform.position).magnitude;
         switch (State)
         {
             case EnemyStatus.Idle:
@@ -38,12 +43,12 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(rb.transform.position, Basepos.transform.position, ChaseSpeed * Time.deltaTime);
+                   rb.transform.position = Vector3.MoveTowards(rb.transform.position, Basepos.transform.position, ChaseSpeed * Time.deltaTime);
                 }
                 break;
 
             case EnemyStatus.Chasing:
-                transform.position = Vector3.MoveTowards(rb.transform.position, Player.transform.position + new Vector3(0, 1, 0), ChaseSpeed * Time.deltaTime);
+                rb.transform.position = Vector3.MoveTowards(rb.transform.position, Player.transform.position, ChaseSpeed * Time.deltaTime);
                 if (distanceToPlayer < 2f) // start attacking if close enough
                 {
                     State = EnemyStatus.Attacking;
@@ -60,8 +65,8 @@ public class Enemy : MonoBehaviour
             case EnemyStatus.Distracted:
                 if (honey != null)
                 {
-                    float distanceToHoney = (honey.transform.position - transform.position).magnitude;
-                    transform.position = Vector3.MoveTowards(rb.transform.position, honey.transform.position, 3 * Time.deltaTime);
+                    float distanceToHoney = (honey.transform.position - rb.transform.position).magnitude;
+                    rb.transform.position = Vector3.MoveTowards(rb.transform.position, honey.transform.position, 3 * Time.deltaTime);
                     if (distanceToHoney < 1f)
                     {
                         if (Cooldowntime <= 0f)
