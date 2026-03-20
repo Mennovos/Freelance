@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,9 +11,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float ChaseSpeed = 13f;
     [SerializeField] private Animator anim;
     private Rigidbody rb;
-    private bool isAttacking = false;
     private EnemyStatus State;
     private float turn_speed = 5f;
+    float CooldownAttack = 1.8f;
     enum EnemyStatus
     {
         Idle,
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()     
     {
-        //transform.LookAt(Player.transform.position);
+        CooldownAttack -= Time.deltaTime;
         float distanceBasePos = (Player.transform.position - Basepos.transform.position).magnitude;
         float distanceToPlayer = (Player.transform.position - rb.transform.position).magnitude;
         switch (State)
@@ -70,7 +72,6 @@ public class Enemy : MonoBehaviour
             case EnemyStatus.Attacking:
                 anim.SetBool("Walking", false);
                 anim.SetBool("Attack", true);
-                isAttacking = true;
                 if (distanceToPlayer > 10f) // go back to idle if player is far enough
                 {
                     anim.SetBool("Attack", false);
@@ -78,20 +79,18 @@ public class Enemy : MonoBehaviour
                     State = EnemyStatus.Idle;
                 }
                 break;
-
         }
-        Debug.Log(State);
     }
     public void Coolsound()
     {
        Instantiate(Rahhhsound, transform.position, Quaternion.identity);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if(isAttacking == true)
+       if (other.gameObject.CompareTag("Player") && CooldownAttack <= 0f)
         {
-           collision.gameObject.GetComponent<Health>().TakeDamage(10);
-           isAttacking = false;
+            other.gameObject.GetComponent<Health>().TakeDamage(10);
+            CooldownAttack = 1f; // reset cooldown
         }
     }
 }
