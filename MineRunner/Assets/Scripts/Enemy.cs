@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject Basepos;
     [SerializeField] private float ChaseSpeed = 13f;
+    [SerializeField] private Animator anim;
     private Rigidbody rb;
     private bool isAttacking = false;
     private EnemyStatus State;
@@ -19,12 +20,12 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
     }
     private void Update()
     {
-
         Quaternion _lookRotation =
             Quaternion.LookRotation((Player.transform.position - transform.position).normalized);
 
@@ -58,19 +59,24 @@ public class Enemy : MonoBehaviour
                 break;
 
             case EnemyStatus.Chasing:
+                anim.SetBool("Walking", true);
                 rb.transform.position = Vector3.MoveTowards(rb.transform.position, Player.transform.position, ChaseSpeed * Time.deltaTime);
-                if (distanceToPlayer < 3f) // start attacking if close enough
+                if (distanceToPlayer < 2.8f) // start attacking if close enough
                 {
                     State = EnemyStatus.Attacking;
                 }
                 break;
 
             case EnemyStatus.Attacking:
+                anim.SetBool("Walking", false);
+                anim.SetBool("Attack", true);
                 isAttacking = true;
-                //if (distanceToPlayer < 8f) // go back to idle if player is far enough
-                //{
-                //    State = EnemyStatus.Idle;
-                //}
+                if (distanceToPlayer > 10f) // go back to idle if player is far enough
+                {
+                    anim.SetBool("Attack", false);
+                    anim.SetBool("Walking", true);
+                    State = EnemyStatus.Idle;
+                }
                 break;
 
         }
