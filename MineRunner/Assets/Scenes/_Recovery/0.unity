@@ -448,7 +448,7 @@ MonoBehaviour:
   Rahhhsound: {fileID: 1301793957}
   Player: {fileID: 603901974}
   Basepos: {fileID: 855199346}
-  ChaseSpeed: 8.9
+  ChaseSpeed: 2
 --- !u!54 &132482861
 Rigidbody:
   m_ObjectHideFlags: 0

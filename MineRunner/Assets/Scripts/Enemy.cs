@@ -8,14 +8,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject Basepos;
     [SerializeField] private float ChaseSpeed = 13f;
     private Rigidbody rb;
-    private GameObject honey;
-    private float Cooldowntime = 5f;
+    private bool isAttacking = false;
     private EnemyStatus State;
     enum EnemyStatus
     {
         Idle,
         Chasing,
-        Distracted,
         Attacking
     }
     private void Start()
@@ -29,17 +27,16 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()     
     {
-        Cooldowntime -= Time.deltaTime;
         //transform.LookAt(Player.transform.position);
         float distanceBasePos = (Player.transform.position - Basepos.transform.position).magnitude;
         float distanceToPlayer = (Player.transform.position - rb.transform.position).magnitude;
         switch (State)
         {
             case EnemyStatus.Idle:
-                if (distanceBasePos < 4f)
+                if (distanceBasePos < 7f)
                 {
                     State = EnemyStatus.Chasing;
-                    State = EnemyStatus.Distracted;
+                   // State = EnemyStatus.Distracted;
                 }
                 else
                 {
@@ -49,47 +46,37 @@ public class Enemy : MonoBehaviour
 
             case EnemyStatus.Chasing:
                 rb.transform.position = Vector3.MoveTowards(rb.transform.position, Player.transform.position, ChaseSpeed * Time.deltaTime);
-                if (distanceToPlayer < 2f) // start attacking if close enough
+                if (distanceToPlayer < 3f) // start attacking if close enough
                 {
                     State = EnemyStatus.Attacking;
+                }
+                if (distanceBasePos > 10f) // go back to idle if player is too far from base
+                {
+                    State = EnemyStatus.Idle;
                 }
                 break;
 
             case EnemyStatus.Attacking:
-                if (distanceToPlayer < 5f) // go back to idel if player is far enough
-                {
-                    State = EnemyStatus.Idle;
-                }
-               //lose a health
-                break;
-            case EnemyStatus.Distracted:
-                if (honey != null)
-                {
-                    float distanceToHoney = (honey.transform.position - rb.transform.position).magnitude;
-                    rb.transform.position = Vector3.MoveTowards(rb.transform.position, honey.transform.position, 3 * Time.deltaTime);
-                    if (distanceToHoney < 1f)
-                    {
-                        if (Cooldowntime <= 0f)
-                        {
-                            State = EnemyStatus.Idle;
-                            Cooldowntime = 5f;
-                        }
-                    }
-                    if (distanceToPlayer < 2f) // start attacking if player comes close while distracted
-                    {
-                        State = EnemyStatus.Attacking;
-                    }
-                    if (distanceToPlayer < 3f) // start chasing if player comes close while distracted
-                    {
-                        State = EnemyStatus.Chasing;
-                    }
-                }
+                //if (distanceToPlayer < 5f) // go back to idle if player is far enough
+                //{
+                //    State = EnemyStatus.Idle;
+                //}
+                isAttacking = true;
                 break;
 
         }
+        Debug.Log(State);
     }
     public void Coolsound()
     {
        Instantiate(Rahhhsound, transform.position, Quaternion.identity);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(isAttacking == true)
+        {
+           collision.gameObject.GetComponent<Health>().TakeDamage(10);
+           isAttacking = false;
+        }
     }
 }
