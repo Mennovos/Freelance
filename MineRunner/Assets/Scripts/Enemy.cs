@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private bool isAttacking = false;
     private EnemyStatus State;
+    private float turn_speed = 5f;
     enum EnemyStatus
     {
         Idle,
@@ -21,9 +22,15 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
     }
-   private void Update()
+    private void Update()
     {
-       //transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        Quaternion _lookRotation =
+            Quaternion.LookRotation((Player.transform.position - transform.position).normalized);
+
+        //over time
+        transform.rotation =
+            Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
     }
     private void FixedUpdate()     
     {
@@ -33,14 +40,20 @@ public class Enemy : MonoBehaviour
         switch (State)
         {
             case EnemyStatus.Idle:
+
+
                 if (distanceBasePos < 7f)
                 {
                     State = EnemyStatus.Chasing;
-                   // State = EnemyStatus.Distracted;
                 }
                 else
                 {
                    rb.transform.position = Vector3.MoveTowards(rb.transform.position, Basepos.transform.position, ChaseSpeed * Time.deltaTime);
+                }
+
+                if (distanceToPlayer < 3f) // start attacking if close enough
+                {
+                    State = EnemyStatus.Attacking;
                 }
                 break;
 
@@ -50,18 +63,14 @@ public class Enemy : MonoBehaviour
                 {
                     State = EnemyStatus.Attacking;
                 }
-                if (distanceBasePos > 10f) // go back to idle if player is too far from base
-                {
-                    State = EnemyStatus.Idle;
-                }
                 break;
 
             case EnemyStatus.Attacking:
-                //if (distanceToPlayer < 5f) // go back to idle if player is far enough
+                isAttacking = true;
+                //if (distanceToPlayer < 8f) // go back to idle if player is far enough
                 //{
                 //    State = EnemyStatus.Idle;
                 //}
-                isAttacking = true;
                 break;
 
         }
