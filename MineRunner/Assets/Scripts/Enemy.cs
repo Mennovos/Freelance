@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             if (Vector3.Distance(transform.position, Basepos.transform.position) < 0.5f)
             {
                 anim.SetBool("Walking", false);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             else
             {
