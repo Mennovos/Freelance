@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
+using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private EnemyStatus State;
     private float turn_speed = 5f;
-    float CooldownAttack = 1.8f;
+    private float CooldownAttack = 1.8f;
     enum EnemyStatus
     {
         Idle,
@@ -28,12 +28,27 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        Quaternion _lookRotation =
-            Quaternion.LookRotation((Player.transform.position - transform.position).normalized);
+        if (State == EnemyStatus.Chasing || State == EnemyStatus.Attacking)
+        {
+            LookAtPlayer();
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, Basepos.transform.position) < 0.5f)
+            {
+                anim.SetBool("Walking", false);
+            }
+            else
+            {
+                anim.SetBool("Walking", true);
+                Quaternion _lookRotation =
+                 Quaternion.LookRotation((Basepos.transform.position - transform.position).normalized);
 
-        //over time
-        transform.rotation =
-            Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
+                //over time
+                transform.rotation =
+                    Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
+            }
+        }
     }
     private void FixedUpdate()     
     {
@@ -99,5 +114,14 @@ public class Enemy : MonoBehaviour
             other.gameObject.GetComponent<Health>().TakeDamage(10);
             CooldownAttack = 1f; // reset cooldown
         }
+    }
+    private void LookAtPlayer()
+    {
+        Quaternion _lookRotation =
+            Quaternion.LookRotation((Player.transform.position - transform.position).normalized);
+
+        //over time
+        transform.rotation =
+            Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
     }
 }

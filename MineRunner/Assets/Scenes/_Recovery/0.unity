@@ -1945,6 +1945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rahhh Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 2996696152203356026, guid: f95fcb69add6d3a4fb9a1018330f17ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4826594327944591333, guid: f95fcb69add6d3a4fb9a1018330f17ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.81194
