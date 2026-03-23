@@ -10,10 +10,11 @@ public class PlayerScript : MonoBehaviour
     private Controls Controls;
 
     private Rigidbody Rb;
+    private Animator Anim;
     private bool attacking;
     private void Awake()
     {
-       // Anim = GetComponent<Animator>();
+         Anim = GetComponent<Animator>();
         Controls = new Controls();
         Controls.Player.Enable();
 
@@ -29,6 +30,7 @@ public class PlayerScript : MonoBehaviour
         Movement.x = context.ReadValue<Vector2>().x;
         Movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
+        Anim.SetBool("Walking", Walking);
     }
     public void DealDamage(float damage)
     {
