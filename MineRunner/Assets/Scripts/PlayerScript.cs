@@ -20,6 +20,9 @@ public class PlayerScript : MonoBehaviour
 
         Controls.Player.Move.performed += OnMove;
         Controls.Player.Move.canceled += OnMove;
+        Controls.Player.Punch.performed += Punch;
+        Controls.Player.Kick.performed += Kick;
+
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -31,6 +34,20 @@ public class PlayerScript : MonoBehaviour
         Movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
         Anim.SetBool("Walking", Walking);
+    }
+    public void Punch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+           Anim.SetTrigger("Punching");
+        }
+    }
+    public void Kick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Anim.SetTrigger("Kicking");
+        }
     }
     public void DealDamage(float damage)
     {
