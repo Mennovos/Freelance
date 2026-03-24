@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour
 {
-   LayerMask grappleLayerMask;
+     LayerMask grappleLayerMask;
+    [SerializeField] private Transform Grapplepoint;
     private float q = 0.0f;
     private void Start()
     {
@@ -10,14 +11,13 @@ public class Grapple : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
+        if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
         {
             Debug.Log($"Grapple hit: {hit.collider.name}");
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
         }
     }
 }
