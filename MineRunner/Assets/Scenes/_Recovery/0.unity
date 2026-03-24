@@ -508,8 +508,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1263508, y: 0.11851471, z: -0.015206118, w: 0.9847632}
-  m_LocalPosition: {x: -0.42, y: 6.75, z: 17.77}
+  m_LocalRotation: {x: -0.03648871, y: 0.13075964, z: 0.0048158905, w: 0.9907307}
+  m_LocalPosition: {x: -0.42, y: 5.8307896, z: 14.770265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2914,7 +2914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Radius
-      value: 8.85
+      value: 8.43
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: OrbitStyle
@@ -2930,7 +2930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: TargetOffset.z
-      value: 1.11
+      value: -2.36
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: RadialAxis.Value
@@ -2962,15 +2962,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: VerticalAxis.Value
-      value: 0
+      value: -6.26
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Wrap
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Value
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Orbits.Bottom.Height
@@ -2998,7 +2998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Center
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Range.x
@@ -3036,6 +3036,10 @@ PrefabInstance:
       propertyPath: TrackerSettings.PositionDamping.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: HorizontalAxis.Recentering.Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1777431669488960037, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_ControllerManager.Controllers.Array.data[1].Enabled
       value: 0
@@ -3046,27 +3050,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.75
+      value: 5.8307896
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.77
+      value: 14.770265
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9847632
+      value: 0.9907307
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12635076
+      value: -0.036488704
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.11851469
+      value: 0.13075963
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.015206111
+      value: 0.0048158905
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3089,12 +3093,16 @@ PrefabInstance:
       value: ThirdPersonCam
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: TargetOffset.x
-      value: -0.33
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: TargetOffset.y
-      value: 3.1
+      value: 6.14
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: TargetOffset.z
@@ -3109,12 +3117,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: Composition.DeadZone.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Composition.ScreenPosition.x
       value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Composition.ScreenPosition.y
-      value: 0.31
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7690919430222601243, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Composition.HardLimits.Size.x
