@@ -3036,6 +3036,10 @@ PrefabInstance:
       propertyPath: TrackerSettings.PositionDamping.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1777431669488960037, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[1].Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42
