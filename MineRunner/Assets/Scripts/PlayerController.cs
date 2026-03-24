@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private float Speed;
-    [SerializeField] private Transform Cam;
     private Vector3 Movement;
 
     private Controls Controls;
@@ -62,7 +61,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Translate(Movement * Speed * Time.deltaTime);
-
+        if (cameraTransform != null)
+        {
+            Vector3 PlayerRotation = transform.eulerAngles;
+            PlayerRotation.y = cameraTransform.eulerAngles.y;
+            transform.eulerAngles = PlayerRotation;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
