@@ -63,24 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Movement * Speed * Time.deltaTime);
 
-        //Vector3 forward = cameraTransform.forward;
-        //Vector3 right = cameraTransform.right;
-
-        //forward.y = 0;
-        //right.y = 0;
-
-        //forward.Normalize();
-        //right.Normalize();
-
-        //Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
-     
-
-        //if (shouldFaceMoveDirection && moveDirection.sqrMagnitude > 0.001f)
-        //{
-        //    Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
-        //}
-
     }
     private void OnCollisionEnter(Collision collision)
     {
