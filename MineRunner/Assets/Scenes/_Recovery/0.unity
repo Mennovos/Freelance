@@ -508,8 +508,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0049069584, y: 0.96778685, z: 0.25101134, w: -0.018919028}
-  m_LocalPosition: {x: 0.6461071, y: 6.3850813, z: 33.209866}
+  m_LocalRotation: {x: 0.0034330436, y: 0.98409945, z: 0.1765513, w: -0.019135837}
+  m_LocalPosition: {x: 0.6157867, y: 8.192581, z: 32.889107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2950,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: RecenteringTarget
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: RadialAxis.Range.x
@@ -2962,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: VerticalAxis.Value
-      value: 43.4
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Wrap
@@ -2978,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Orbits.Bottom.Radius
-      value: 0.86
+      value: 3.13
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: Orbits.Center.Height
@@ -2989,12 +2989,20 @@ PrefabInstance:
       value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: VerticalAxis.Range.x
+      value: -219.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: VerticalAxis.Range.y
+      value: 200.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Center
       value: 179.14
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Range.x
-      value: 37.5
+      value: -417.6
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: HorizontalAxis.Range.y
@@ -3007,6 +3015,10 @@ PrefabInstance:
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: RadialAxis.Recentering.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
+      propertyPath: VerticalAxis.Recentering.Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1116273590893526550, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: TrackerSettings.PositionDamping.x
@@ -3022,31 +3034,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6461071
+      value: 0.6157867
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.3850813
+      value: 8.192581
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.209866
+      value: 32.889107
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.018919026
+      value: -0.019135837
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0049069584
+      value: 0.0034330434
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.96778685
+      value: 0.98409945
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.25101134
+      value: 0.17655127
       objectReference: {fileID: 0}
     - target: {fileID: 2134466694542783456, guid: 1d3cd9121c2fbb94b8e3798b2227a59d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
