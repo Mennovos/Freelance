@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private bool shouldFaceMoveDirection = false;
 
     private Vector2 moveInput;
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody Rb;
     private Animator Anim;
-    private bool attacking;
+    public bool Grappling;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Punch.performed += Punch;
         Controls.Player.Kick.performed += Kick;
-
+        Controls.Player.Grapple.performed += Grapple;   
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -57,6 +57,13 @@ public class PlayerController : MonoBehaviour
             Anim.SetTrigger("Kicking");
         }
     }
+    public void Grapple(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            StartCoroutine(GrappleCooldown());
+        }
+    }
 
     void Update()
     {
@@ -74,6 +81,12 @@ public class PlayerController : MonoBehaviour
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(10);
         }
+    }
+    IEnumerator GrappleCooldown()
+    {
+        Grappling = true;
+        yield return new WaitForSeconds(0.01f);
+        Grappling = false;
     }
     // Credits Jasperr
 }

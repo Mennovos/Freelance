@@ -181,6 +181,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grapple"",
+                    ""type"": ""Button"",
+                    ""id"": ""58625983-4355-40d1-bd4c-4844db3f70cc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -522,6 +531,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""271849dc-dff8-4070-b607-d8374a2663ff"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1119,6 +1139,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
+        m_Player_Grapple = m_Player.FindAction("Grapple", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1222,6 +1243,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Punch;
+    private readonly InputAction m_Player_Grapple;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1273,6 +1295,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Punch".
         /// </summary>
         public InputAction @Punch => m_Wrapper.m_Player_Punch;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Grapple".
+        /// </summary>
+        public InputAction @Grapple => m_Wrapper.m_Player_Grapple;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1329,6 +1355,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Punch.started += instance.OnPunch;
             @Punch.performed += instance.OnPunch;
             @Punch.canceled += instance.OnPunch;
+            @Grapple.started += instance.OnGrapple;
+            @Grapple.performed += instance.OnGrapple;
+            @Grapple.canceled += instance.OnGrapple;
         }
 
         /// <summary>
@@ -1370,6 +1399,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Punch.started -= instance.OnPunch;
             @Punch.performed -= instance.OnPunch;
             @Punch.canceled -= instance.OnPunch;
+            @Grapple.started -= instance.OnGrapple;
+            @Grapple.performed -= instance.OnGrapple;
+            @Grapple.canceled -= instance.OnGrapple;
         }
 
         /// <summary>
@@ -1740,6 +1772,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPunch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Grapple" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGrapple(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
