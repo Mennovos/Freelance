@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            StartCoroutine(GrappleCooldown());
+         StartCoroutine(GrappleCooldown());
         }
     }
 
@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator GrappleCooldown()
     {
+        Anim.SetTrigger("Grapple");
+        yield return new WaitForSeconds(1f);
         Grappling = true;
         yield return new WaitForSeconds(0.01f);
         Grappling = false;
