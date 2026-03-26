@@ -277,6 +277,7 @@ MonoBehaviour:
   GrappleSpeed: 3
   Grapplepoint: {fileID: 43548746}
   grapplePoints: []
+  IsPickedUpByGrappler: 0
 --- !u!1 &119211095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1505,7 @@ GameObject:
   - component: {fileID: 731093159}
   - component: {fileID: 731093158}
   - component: {fileID: 731093162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,11 +1601,11 @@ Transform:
   m_GameObject: {fileID: 731093156}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6542997, y: 1.78, z: -10.13682}
+  m_LocalPosition: {x: 7.188, y: 3.962, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1713835100}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &731093162
 MonoBehaviour:
@@ -3029,8 +3030,7 @@ Transform:
   m_LocalPosition: {x: -1.6543, y: -0, z: 10.13682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 731093161}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803253464
@@ -4726,3 +4726,4 @@ SceneRoots:
   - {fileID: 1461512010}
   - {fileID: 1905825114}
   - {fileID: 654327760}
+  - {fileID: 731093161}
