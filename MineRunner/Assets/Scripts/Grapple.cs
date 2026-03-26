@@ -10,6 +10,7 @@ public class Grapple : MonoBehaviour
     [SerializeField] private float GrappleSpeed = 5f;
     [SerializeField] private Transform Grapplepoint;
     [SerializeField] private List<Transform> grapplePoints;
+    [SerializeField] private List<GameObject> PickupsPosition;
 
     public bool IsPickedUpByGrappler = false;
 
@@ -24,14 +25,14 @@ public class Grapple : MonoBehaviour
         if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
         {
             Debug.Log($"Grapple hit: {hit.collider.name}");
-            if (playerController.Grappling == true && hit.collider.name != "Pickup")
+            if (playerController.Grappling == true && !hit.collider.CompareTag("Pickup"))
             {
                 grapplePoints.Add(hit.transform);
                 Vector3 EndPoint = hit.point;
             }
-            if (hit.collider.name == "Pickup" && playerController.Grappling == true)
+            if (playerController.Grappling == true && hit.collider.CompareTag("Pickup"))
             {
-                IsPickedUpByGrappler = true;
+                PickupsPosition.Add(hit.collider.gameObject);
             }
         }
         else
@@ -50,6 +51,15 @@ public class Grapple : MonoBehaviour
             if (Vector3.Distance(playerController.transform.position, grapplePoints[i].position) < 4f)
             {
                 grapplePoints.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < PickupsPosition.Count; i++)
+        {
+            PickupsPosition[i].transform.position = Vector3.Lerp(PickupsPosition[i].transform.position, playerController.transform.position + new Vector3(0, 5, 0), Time.deltaTime * 3);
+            if (Vector3.Distance(playerController.transform.position, PickupsPosition[i].transform.position) <= 5f)
+            {
+                Debug.Log("Removes it?");
+                PickupsPosition.RemoveAt(i);
             }
         }
     }
