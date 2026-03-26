@@ -11,6 +11,8 @@ public class Grapple : MonoBehaviour
     [SerializeField] private Transform Grapplepoint;
     [SerializeField] private List<Transform> grapplePoints;
 
+    public bool IsPickedUpByGrappler = false;
+
     private void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
@@ -21,13 +23,16 @@ public class Grapple : MonoBehaviour
     {
         if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
         {
-            // Debug.Log($"Grapple hit: {hit.collider.name}");
+            //Debug.Log($"Grapple hit: {hit.collider.name}");
             if (playerController.Grappling == true)
             {
                 grapplePoints.Add(hit.transform);
                 Vector3 EndPoint = hit.point;
             }
-
+            if (hit.collider.name == "Pickup" && playerController.Grappling == true)
+            {
+                IsPickedUpByGrappler = true;
+            }
         }
         else
         {
