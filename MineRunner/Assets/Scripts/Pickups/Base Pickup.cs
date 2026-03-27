@@ -12,7 +12,7 @@ public abstract class BasePickup : MonoBehaviour
     }
     protected virtual void Update()
     {
-   
+     transform.Rotate(Vector3.up * Time.deltaTime * 100);
     }
     protected virtual void OnCollisionEnter(Collision collision)
     {
