@@ -5,11 +5,6 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonCameraController : MonoBehaviour
 {
-   // [SerializeField] private float zoomSpeed = 2f;
-   // [SerializeField] private float zoomLerpSpeed = 10f;
-   // [SerializeField] private float minDistance = 3f;
-   // [SerializeField] private float maxDistance = 15f;
-
     private PlayerControls controls;
 
     private CinemachineCamera cam;
@@ -44,18 +39,10 @@ public class ThirdPersonCameraController : MonoBehaviour
         {
             if (orbital != null)
             {
-            //    targetZoom = Mathf.Clamp(orbital.Radius - scrollDelta.y * zoomSpeed, minDistance, maxDistance);
                 scrollDelta = Vector2.zero;
             }
         }
 
-        float bumperDelta = controls.CameraControls.GamepadZoom.ReadValue<float>();
-        if (bumperDelta != 0)
-        {
-       //     targetZoom = Mathf.Clamp(orbital.Radius - bumperDelta * zoomSpeed, minDistance, maxDistance);
-        }
-
-       // currentZoom = Mathf.Lerp(currentZoom, targetZoom, Time.deltaTime * zoomLerpSpeed);
         orbital.Radius = currentZoom;
     }
     //credits to jasperr

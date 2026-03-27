@@ -16,6 +16,11 @@ public abstract class BasePickup : MonoBehaviour
     }
     protected virtual void OnCollisionEnter(Collision collision)
     {
+       Grapple grapple = collision.gameObject.GetComponentInChildren<Grapple>();
+        if (grapple != null)
+        {
+            grapple.PickupsPosition.Remove(grapple.PickupsPosition[0]);
+        }
         gamemanger.AddItemes(1);
         Destroy(gameObject);
     }

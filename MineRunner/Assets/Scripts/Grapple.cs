@@ -10,7 +10,7 @@ public class Grapple : MonoBehaviour
     [SerializeField] private float GrappleSpeed = 5f;
     [SerializeField] private Transform Grapplepoint;
     [SerializeField] private List<Transform> grapplePoints;
-    [SerializeField] private List<GameObject> PickupsPosition;
+    [SerializeField] public List<GameObject> PickupsPosition;
 
     public bool IsPickedUpByGrappler = false;
 
@@ -56,11 +56,6 @@ public class Grapple : MonoBehaviour
         for (int i = 0; i < PickupsPosition.Count; i++)
         {
             PickupsPosition[i].transform.position = Vector3.Lerp(PickupsPosition[i].transform.position, playerController.transform.position + new Vector3(0, 5, 0), Time.deltaTime * 3);
-            if (Vector3.Distance(playerController.transform.position, PickupsPosition[i].transform.position) <= 5f)
-            {
-                Debug.Log("Removes it?");
-                PickupsPosition.RemoveAt(i);
-            }
         }
     }
 }

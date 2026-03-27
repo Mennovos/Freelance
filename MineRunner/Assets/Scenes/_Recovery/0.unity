@@ -274,9 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450503b08275f514c963a39404ffa0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grapple
-  GrappleSpeed: 3
+  GrappleSpeed: 5
   Grapplepoint: {fileID: 43548746}
   grapplePoints: []
+  PickupsPosition: []
   IsPickedUpByGrappler: 0
 --- !u!1 &119211095
 GameObject:
@@ -765,7 +766,7 @@ GameObject:
   - component: {fileID: 341288784}
   m_Layer: 6
   m_Name: Pickup (1)
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1635,7 @@ GameObject:
   - component: {fileID: 731093162}
   m_Layer: 6
   m_Name: Pickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
