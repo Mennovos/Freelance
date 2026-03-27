@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody Rb;
     private Animator Anim;
     public bool Grappling;
+    private bool Restraint;
 
     private void Awake()
     {
@@ -45,15 +46,17 @@ public class PlayerController : MonoBehaviour
     }
     public void Punch(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (Restraint == false)
         {
+            StartCoroutine(AttackCooldown("Punching", 1.5f));
             Anim.SetTrigger("Punching");
         }
     }
     public void Kick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (Restraint == false)
         {
+            StartCoroutine(AttackCooldown("Kicking", 1.5f));
             Anim.SetTrigger("Kicking");
         }
     }
@@ -90,5 +93,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         Grappling = false;
     }
-    // Credits Jasperr
+    IEnumerator AttackCooldown(string Attackname,float Cooldowntime)
+    {
+        Anim.SetTrigger(Attackname);
+        Restraint = true;
+        yield return new WaitForSeconds(Cooldowntime);
+        Restraint = false;
+    }
+    // Credits Jasperr for orbital code 
 }
