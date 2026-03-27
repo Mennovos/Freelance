@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Gamemanger : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI ItemsText;
+    [SerializeField] private TextMeshProUGUI DiamondsText;
+    [SerializeField] private TextMeshProUGUI EmeraldsText;
     private int Diamonds;
+    private int Emeralds;
     public void AddItemes(int Items)
     {
         Debug.Log("Added " + Items + " items");
@@ -12,11 +14,13 @@ public class Gamemanger : MonoBehaviour
     }
     void Start()
     {
-        ItemsText.text = " " + Diamonds;   
+        DiamondsText.text = " " + Diamonds; 
+        EmeraldsText.text = " " + Emeralds;
     }
 
     void Update()
     {
-       ItemsText.text = " " + Diamonds;
+       DiamondsText.text = " " + Diamonds;
+       EmeraldsText.text = " " + Emeralds;
     }
 }
