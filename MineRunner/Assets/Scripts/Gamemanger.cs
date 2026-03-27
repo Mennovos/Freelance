@@ -12,11 +12,11 @@ public class Gamemanger : MonoBehaviour
     }
     void Start()
     {
-        ItemsText.text = "Diamonds: " + Diamonds;   
+        ItemsText.text = " " + Diamonds;   
     }
 
     void Update()
     {
-       ItemsText.text = "Diamonds: " + Diamonds;
+       ItemsText.text = " " + Diamonds;
     }
 }

@@ -190,6 +190,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""03fd7f49-aeb8-423c-b318-d21ee477ea53"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -542,6 +551,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3113f3f-3922-4db8-a4cd-d7cd4f3586f5"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1140,6 +1160,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
         m_Player_Grapple = m_Player.FindAction("Grapple", throwIfNotFound: true);
+        m_Player_Map = m_Player.FindAction("Map", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1244,6 +1265,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Punch;
     private readonly InputAction m_Player_Grapple;
+    private readonly InputAction m_Player_Map;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1299,6 +1321,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Grapple".
         /// </summary>
         public InputAction @Grapple => m_Wrapper.m_Player_Grapple;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Map".
+        /// </summary>
+        public InputAction @Map => m_Wrapper.m_Player_Map;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1358,6 +1384,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Grapple.started += instance.OnGrapple;
             @Grapple.performed += instance.OnGrapple;
             @Grapple.canceled += instance.OnGrapple;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
         }
 
         /// <summary>
@@ -1402,6 +1431,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Grapple.started -= instance.OnGrapple;
             @Grapple.performed -= instance.OnGrapple;
             @Grapple.canceled -= instance.OnGrapple;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
         }
 
         /// <summary>
@@ -1779,6 +1811,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGrapple(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Map" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMap(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

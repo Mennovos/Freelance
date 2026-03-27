@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private GameObject Map;
 
     private Vector2 moveInput;
 
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         Controls.Player.Punch.performed += Punch;
         Controls.Player.Kick.performed += Kick;
         Controls.Player.Grapple.performed += Grapple;   
+        Controls.Player.Map.performed += OpenMap;
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -43,6 +45,13 @@ public class PlayerController : MonoBehaviour
         Movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
         Anim.SetBool("Walking", Walking);
+    }
+    public void OpenMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+           Map.SetActive(true);
+        }
     }
     public void Punch(InputAction.CallbackContext context)
     {
