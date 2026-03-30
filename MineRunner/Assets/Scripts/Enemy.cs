@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float ChaseSpeed = 13f;
     [SerializeField] private Animator anim;
     private Rigidbody rb;
-    private PlayerController Player;
+    private GameObject Player;
     private EnemyStatus State;
     private float turn_speed = 5f;
     private float CooldownAttack = 1.8f;
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
-        Player = FindFirstObjectByType<PlayerController>();
+        Player = GameObject.Find("Player head");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
