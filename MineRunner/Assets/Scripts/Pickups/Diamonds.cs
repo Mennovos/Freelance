@@ -13,6 +13,7 @@ public class Diamonds : BasePickup
      private void OnCollisionEnter(Collision collision)
      {
         base.OnCollisionEnter(collision);
-     }
+        gamemanger.AddItemes(1, "Diamond");
+    }
 
 }

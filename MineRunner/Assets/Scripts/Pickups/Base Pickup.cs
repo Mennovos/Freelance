@@ -21,7 +21,6 @@ public abstract class BasePickup : MonoBehaviour
         {
             grapple.PickupsPosition.Remove(grapple.PickupsPosition[0]);
         }
-        gamemanger.AddItemes(1);
         Destroy(gameObject);
     }
 }

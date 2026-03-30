@@ -7,10 +7,17 @@ public class Gamemanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI EmeraldsText;
     private int Diamonds;
     private int Emeralds;
-    public void AddItemes(int Items)
+    public void AddItemes(int ItemsAmount,string Pickupmame)
     {
-        Debug.Log("Added " + Items + " items");
-        Diamonds += Items;
+        Debug.Log("Added " + ItemsAmount + " items");
+        if (Pickupmame == "Diamond")
+        {
+            Diamonds += ItemsAmount;
+        }
+        else if (Pickupmame == "Emerald")
+        {
+            Emeralds += ItemsAmount;
+        }
     }
     void Start()
     {

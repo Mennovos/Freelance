@@ -1361,6 +1361,81 @@ RectTransform:
   m_AnchoredPosition: {x: 268, y: 208}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &794972055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794972056}
+  - component: {fileID: 794972058}
+  - component: {fileID: 794972057}
+  m_Layer: 5
+  m_Name: Emeraldimage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &794972056
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794972055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1290374578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -44.6, y: 171}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &794972057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794972055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7553c5b99e8057943ae2bc1aa485394c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &794972058
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794972055}
+  m_CullTransparentMesh: 1
 --- !u!4 &827311317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: e4c17022e8e67bb40a2958447abaf10f, type: 3}
@@ -2390,7 +2465,7 @@ GameObject:
   - component: {fileID: 1218555359}
   - component: {fileID: 1218555358}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Diamondimage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,6 +2657,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6772f9b03329b094c8243ea350546bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Emeralds
+--- !u!136 &1264425001
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264424995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.87331367
+  m_Height: 2.4406776
+  m_Direction: 1
+  m_Center: {x: -0.0000003874302, y: 0, z: -0.000000029802322}
 --- !u!1 &1290374577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2711,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1218555357}
+  - {fileID: 794972056}
   - {fileID: 1212225931}
   - {fileID: 756562082}
   m_Father: {fileID: 119211099}
@@ -2791,7 +2890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8630704055044304598, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.47
+      value: 4.054
       objectReference: {fileID: 0}
     - target: {fileID: 8630704055044304598, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2848,6 +2947,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8975035450620130412, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1264424996}
+    - targetCorrespondingSourceObject: {fileID: 8975035450620130412, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1264425001}
   m_SourcePrefab: {fileID: 100100000, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
 --- !u!1 &1461512008
 GameObject:
@@ -3490,6 +3592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Island
   Niveau: 3
+  barrier: {fileID: 1256907772}
   Enemies:
   - {fileID: 1175548865106218571, guid: f5f40aa79aa633544be56ace9aa3fa60, type: 3}
   Pickups:
