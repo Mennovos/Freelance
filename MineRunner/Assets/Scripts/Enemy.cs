@@ -6,14 +6,15 @@ using Vector3 = UnityEngine.Vector3;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject Rahhhsound;
-    [SerializeField] private GameObject Player;
     [SerializeField] private GameObject Basepos;
     [SerializeField] private float ChaseSpeed = 13f;
     [SerializeField] private Animator anim;
     private Rigidbody rb;
+    private PlayerController Player;
     private EnemyStatus State;
     private float turn_speed = 5f;
     private float CooldownAttack = 1.8f;
+    private float x, y, z;
     enum EnemyStatus
     {
         Idle,
@@ -22,12 +23,25 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
+        Player = FindFirstObjectByType<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         State = EnemyStatus.Idle;
+
+        // Set random position for the enemy to return to when idle
+        x = Random.Range(-10, 10f);
+        y = 3.08f;
+        z = Random.Range(-10f, 10f);
+
+        x += transform.position.x;
+        y += transform.position.y;
+        z += transform.position.z;
+
+        Basepos.transform.position = new Vector3(x, y, z);
     }
     private void Update()
     {
+
         if (State == EnemyStatus.Chasing || State == EnemyStatus.Attacking)
         {
             LookAtPlayer();
@@ -53,6 +67,7 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()     
     {
+        Basepos.transform.position = new Vector3(x, y, z);
         CooldownAttack -= Time.deltaTime;
         float distanceBasePos = (Player.transform.position - Basepos.transform.position).magnitude;
         float distanceToPlayer = (Player.transform.position - rb.transform.position).magnitude;
