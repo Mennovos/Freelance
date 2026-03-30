@@ -12,13 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruby pickup Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7063743252289416628, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063743252289416628, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 7587621701567231758, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.45
       objectReference: {fileID: 0}
     - target: {fileID: 7587621701567231758, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.97
+      value: 3.76
       objectReference: {fileID: 0}
     - target: {fileID: 7587621701567231758, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -104,6 +112,6 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.3809805
-  m_Height: 2.4200811
+  m_Height: 3.7475371
   m_Direction: 1
-  m_Center: {x: -0.025934637, y: -0.22451472, z: -0.13865817}
+  m_Center: {x: -0.025934696, y: 0.26827335, z: -0.13865817}
