@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
         z = Random.Range(-10f, 10f);
 
         x += transform.position.x;
-        y += transform.position.y;
         z += transform.position.z;
 
         Basepos.transform.position = new Vector3(x, y, z);
