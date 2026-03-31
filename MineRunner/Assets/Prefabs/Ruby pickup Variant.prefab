@@ -73,7 +73,7 @@ PrefabInstance:
       addedObject: {fileID: 4555119013140669813}
     - targetCorrespondingSourceObject: {fileID: 7063743252289416628, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5484134405266624724}
+      addedObject: {fileID: 5609712145124313114}
   m_SourcePrefab: {fileID: 100100000, guid: f9368726f996fae4a9cedf84c01a2ff0, type: 3}
 --- !u!1 &7633874692340173624 stripped
 GameObject:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ae51e6c8fe60943a46848f9022bbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ruby
---- !u!136 &5484134405266624724
-CapsuleCollider:
+--- !u!65 &5609712145124313114
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,8 +110,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.3809805
-  m_Height: 3.7475371
-  m_Direction: 1
-  m_Center: {x: -0.025934696, y: 0.26827335, z: -0.13865817}
+  serializedVersion: 3
+  m_Size: {x: 2.761961, y: 2.4200811, z: 2.6267812}
+  m_Center: {x: -0.025934637, y: -0.22451472, z: -0.13865817}

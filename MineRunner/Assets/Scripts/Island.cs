@@ -4,11 +4,18 @@ using UnityEngine;
 public class Island : MonoBehaviour
 {
     private PlayerController playerController;
+    [SerializeField] private string islandcode;
     [SerializeField] private int Niveau;
     [SerializeField] private GameObject barrier;
+
+    [SerializeField] private List<Transform> Spawnpoints;
     [SerializeField] private List<GameObject> Enemies;
     [SerializeField] private List<GameObject> Pickups;
-    [SerializeField] private List<Transform> Spawnpoints;
+
+    [Header("Spawnable Enemies and Pickups")]
+    [SerializeField] private List<GameObject> spawnEnemies;
+     private List<GameObject> spawnPickups;
+
 
     private void Start()
     {
@@ -23,21 +30,24 @@ public class Island : MonoBehaviour
         {
             for (int i = 0; i < Spawnpoints.Count; i++)
             {
-                if (Enemies.Count < Niveau)
+                if (spawnEnemies.Count < Niveau)
                 {
-                    GameObject Enemy = Instantiate(Enemies[Random.Range(0, Enemies.Count)], Spawnpoints[i].position, Quaternion.identity);
-                    Enemies.Add(Enemy);
+                    GameObject Enemy = Instantiate(Enemies[Random.Range(0, spawnEnemies.Count)], Spawnpoints[i].position, Quaternion.identity);
+                    spawnEnemies.Add(Enemy);
+                    Enemy.GetComponent<Enemy>().SetIslandParent(this);
                 }
-                if (Pickups.Count < Niveau)
+                if (spawnPickups.Count < Niveau)
                 {
-                    GameObject Pickup = Instantiate(Pickups[Random.Range(0, Pickups.Count)], Spawnpoints[i].position, Quaternion.identity);
-                    Pickups.Add(Pickup);
+                    GameObject Pickup = Instantiate(Pickups[Random.Range(0, spawnPickups.Count)], Spawnpoints[i].position, Quaternion.identity);
+                    spawnPickups.Add(Pickup);
                 }
             }
-            if (Enemies.Count == 1)
+            if (spawnEnemies.Count == 1)
             {
+                Debug.Log("All enemies on the island are dead.");
                 barrier.SetActive(false);
             }
         }
     }
+
 }

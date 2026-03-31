@@ -3691,15 +3691,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1215d6c3d33fb48914003719c228e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Island
+  islandcode: 
   Niveau: 3
   barrier: {fileID: 1256907772}
+  Spawnpoints: []
   Enemies:
   - {fileID: 1175548865106218571, guid: f5f40aa79aa633544be56ace9aa3fa60, type: 3}
   Pickups:
   - {fileID: 1477281737042052454, guid: e4c774e115d204745b8fdd850839bdf2, type: 3}
-  Spawnpoints:
-  - {fileID: 1587869837}
-  - {fileID: 43381818}
+  spawnEnemies: []
 --- !u!1 &1981885765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e4c17022e8e67bb40a2958447abaf10f, type: 3}
@@ -4427,18 +4427,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5484134405266624724, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
-      propertyPath: m_Height
-      value: 3.7475371
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484134405266624724, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
-      propertyPath: m_Center.x
-      value: -0.025934696
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484134405266624724, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
-      propertyPath: m_Center.y
-      value: 0.26827335
-      objectReference: {fileID: 0}
     - target: {fileID: 7114324268795007362, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.45
@@ -4482,14 +4470,6 @@ PrefabInstance:
     - target: {fileID: 7633874692340173624, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
       propertyPath: m_Name
       value: Ruby pickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633874692340173624, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633874692340173624, guid: bf7d00ae7ad815e4f990cc4698222e16, type: 3}
-      propertyPath: m_TagString
-      value: Pickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

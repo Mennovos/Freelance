@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject Basepos;
     [SerializeField] private float ChaseSpeed = 13f;
     [SerializeField] private Animator anim;
+    private Island island;
     private Rigidbody rb;
     private GameObject Player;
     private EnemyStatus State;
@@ -23,9 +24,13 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
+
         Player = GameObject.Find("Player head");
+
         anim = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody>();
+
         State = EnemyStatus.Idle;
 
         // Set random position for the enemy to return to when idle
@@ -139,4 +144,9 @@ public class Enemy : MonoBehaviour
         transform.rotation =
             Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * turn_speed);
     }
+    public void SetIslandParent(Island island)
+    {
+        this.island = island;
+    }
+
 }

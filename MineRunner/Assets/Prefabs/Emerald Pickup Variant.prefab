@@ -73,7 +73,7 @@ PrefabInstance:
       addedObject: {fileID: 833750982913466623}
     - targetCorrespondingSourceObject: {fileID: 8975035450620130412, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6272890236824985047}
+      addedObject: {fileID: 4600402730251205769}
   m_SourcePrefab: {fileID: 100100000, guid: c8b9bc24f5f39c747b10e99a670e562d, type: 3}
 --- !u!1 &1106835739974052796 stripped
 GameObject:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6772f9b03329b094c8243ea350546bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Emeralds
---- !u!136 &6272890236824985047
-CapsuleCollider:
+--- !u!65 &4600402730251205769
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,8 +110,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.87331367
-  m_Height: 2.4406776
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7466273, y: 2.4406776, z: 0.7939218}
   m_Center: {x: -0.0000003874302, y: 0, z: -0.000000029802322}

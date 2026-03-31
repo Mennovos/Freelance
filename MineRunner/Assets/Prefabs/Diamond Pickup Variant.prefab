@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 920287642452987015, guid: 57377efc0a877474ab0478d4ce8180c2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69,7 +73,7 @@ PrefabInstance:
       addedObject: {fileID: 1898509227452477427}
     - targetCorrespondingSourceObject: {fileID: 543725697735843016, guid: 57377efc0a877474ab0478d4ce8180c2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4681542276814735467}
+      addedObject: {fileID: 1402253613664146265}
   m_SourcePrefab: {fileID: 100100000, guid: 57377efc0a877474ab0478d4ce8180c2, type: 3}
 --- !u!1 &4713972480732024842 stripped
 GameObject:
@@ -88,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b24525e4b02784eb19eca25005d160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Diamonds
---- !u!136 &4681542276814735467
-CapsuleCollider:
+--- !u!65 &1402253613664146265
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,8 +110,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2806178
-  m_Height: 2.4358804
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5612357, y: 2.4358804, z: 0.92392194}
   m_Center: {x: 0.00000023841858, y: 0.12858152, z: 0.00000043213367}
