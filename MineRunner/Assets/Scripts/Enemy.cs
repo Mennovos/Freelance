@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
@@ -146,7 +147,12 @@ public class Enemy : MonoBehaviour
     }
     public void SetIslandParent(Island island)
     {
+        
         this.island = island;
+        if(gameObject.GetComponent<Health>().gethealth() == 0)
+        {
+          island.spawnEnemies.Remove(gameObject);
+        }
     }
 
 }

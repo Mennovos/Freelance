@@ -13,7 +13,7 @@ public class Island : MonoBehaviour
     [SerializeField] private List<GameObject> Pickups;
 
     [Header("Spawnable Enemies and Pickups")]
-    [SerializeField] private List<GameObject> spawnEnemies;
+    [SerializeField] public List<GameObject> spawnEnemies;
      private List<GameObject> spawnPickups;
 
 
@@ -42,7 +42,7 @@ public class Island : MonoBehaviour
                     spawnPickups.Add(Pickup);
                 }
             }
-            if (spawnEnemies.Count == 1)
+            if (spawnEnemies.Count == 0)
             {
                 Debug.Log("All enemies on the island are dead.");
                 barrier.SetActive(false);
