@@ -32,15 +32,15 @@ public class Island : MonoBehaviour
             {
                 if (spawnEnemies.Count < Niveau)
                 {
-                    GameObject Enemy = Instantiate(Enemies[Random.Range(0, spawnEnemies.Count)], Spawnpoints[i].position, Quaternion.identity);
+                    GameObject Enemy = Instantiate(Enemies[Random.Range(0, Enemies.Count)], Spawnpoints[i].position, Quaternion.identity);
                     spawnEnemies.Add(Enemy);
                     Enemy.GetComponent<Enemy>().SetIslandParent(this);
                 }
-                if (spawnPickups.Count < Niveau)
-                {
-                    GameObject Pickup = Instantiate(Pickups[Random.Range(0, spawnPickups.Count)], Spawnpoints[i].position, Quaternion.identity);
-                    spawnPickups.Add(Pickup);
-                }
+                //if (spawnPickups.Count < Niveau)
+                //{
+                  //  GameObject Pickup = Instantiate(Pickups[Random.Range(0, Pickups.Count)], Spawnpoints[i].position, Quaternion.identity);
+                 //   spawnPickups.Add(Pickup);
+                //}
             }
             if (spawnEnemies.Count == 0)
             {

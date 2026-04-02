@@ -3694,7 +3694,9 @@ MonoBehaviour:
   islandcode: 
   Niveau: 3
   barrier: {fileID: 1256907772}
-  Spawnpoints: []
+  Spawnpoints:
+  - {fileID: 1587869837}
+  - {fileID: 43381818}
   Enemies:
   - {fileID: 1175548865106218571, guid: f5f40aa79aa633544be56ace9aa3fa60, type: 3}
   Pickups:
