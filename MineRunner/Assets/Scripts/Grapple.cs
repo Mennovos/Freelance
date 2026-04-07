@@ -24,7 +24,7 @@ public class Grapple : MonoBehaviour
     {
         if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
         {
-            Debug.Log($"Grapple hit: {hit.collider.name}");
+            //Debug.Log($"Grapple hit: {hit.collider.name}");
             if (playerController.Grappling == true && !hit.collider.CompareTag("Pickup"))
             {
                 grapplePoints.Add(hit.transform);
